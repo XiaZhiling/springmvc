@@ -3,9 +3,12 @@ package com.ling.handlers.springmvc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/mvc")
@@ -110,6 +113,37 @@ public class SpringmvcController {
 	@RequestMapping(value="/testRest/{id}",method=RequestMethod.PUT)
 	public String testRestPut(@PathVariable("id")Integer id) {
 		log.info("Rest Put Test!!!");
+		return SUCCESS;
+	}
+	
+	
+	/**
+	 * @RequestParam 来映射请求参数. value 值即请求参数的参数名 required 该参数是否必须. 默认为 true
+	 *               defaultValue 请求参数的默认值
+	 */
+	@RequestMapping(value="/testRequestParams")
+	public String testRequestParams(@RequestParam(value="userName")String name,
+			@RequestParam(value="age",required=false,defaultValue="0")Integer age){
+		log.info("RequestParams Test:userName={},age={}",name,age);
+		return SUCCESS;
+	}
+	
+	/**
+	 * 了解: 映射请求头信息 用法同 @RequestParam
+	 */
+	@RequestMapping(value="testRequestHeader")
+	public String testRequestHeader(@RequestHeader(value = "Accept-Language")String al){
+		log.info("RequestHeader Test:al={}",al);
+		return SUCCESS;
+	}
+	
+	
+	/**
+	 * 了解:@CookieValue: 映射一个 Cookie 值. 属性同 @RequestParam
+	 */
+	@RequestMapping(value="/testCookieValue")
+	public String testCookieValue(@CookieValue("JSESSIONID") String sessionId){
+		log.info("CookieValue Test:JSESSIONID={}",sessionId);
 		return SUCCESS;
 	}
 	
