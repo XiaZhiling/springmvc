@@ -8,5 +8,9 @@
 </head>
 <body>
 	Success!!!
+	
+	time:${requestScope.time }
+	<br>
+	names:${requestScope.names }
 </body>
 </html>

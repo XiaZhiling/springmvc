@@ -8,5 +8,10 @@
 </head>
 <body>
 	Success!!!
+	
+	<form action="mvc/testRest/1" method="post">
+		<input type="hidden" name="_method" value="DELETE"/>
+		<input type="submit" value="TestRest DELETE"/>
+	</form>
 </body>
 </html>
