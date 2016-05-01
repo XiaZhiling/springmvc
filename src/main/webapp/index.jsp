@@ -48,6 +48,19 @@
 	<h5>处理模型数据2-Map||Model||ModelMap</h5>
 	<a href="form/testMap"> Test Map</a>
 	
+	<h5>将处理模型数据放到session里面去</h5>
+	<a href="form/testSessionAttributes">Test SessionAttributes</a>
+	<h5>实现类似struts2的pre拦截器的功能</h5>
+	<form action="form/testModelAttribute" method="post">
+		<input type="hidden" name="id" value="1"/>
+		<input type="text" name="userName" value="xzl"/>
+		<input type="text" name="email" value="123@123.com"/>
+		<input type="text" name="age" value="12"/>
+		<input type="submit" name="提交"/>
+	</form>
+	
+	<h5>自定义视图解析器HelloView</h5>
+	<a href="form/testView">Test View</a>
 	
 
 </body>
